@@ -11,7 +11,7 @@ namespace DapperCrud.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IConfiguration _config;
+        private readonly IConfiguration _config;//Sql bağlantısını bu şekilde çağırıyorsun
 
         public UserController(IConfiguration config)
         {
@@ -45,6 +45,7 @@ namespace DapperCrud.Controllers
 
             return Ok(await SelectAllModels(connection));
         }
+
         [HttpPut]
         public async Task<ActionResult<List<Model>>> UpdateModels(Model m)
         {
@@ -54,6 +55,7 @@ namespace DapperCrud.Controllers
 
             return Ok(await SelectAllModels(connection));
         }
+
         [HttpDelete("{Id}")]
         public async Task<ActionResult<List<Model>>> DeleteModels(int Id)
         {
